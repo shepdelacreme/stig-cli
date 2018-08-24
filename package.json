@@ -11,7 +11,8 @@
     "/bin",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json",
-    "/src"
+    "/src",
+    "/data"
   ],
   "dependencies": {
     "@oclif/command": "^1.5.0",
@@ -73,7 +74,7 @@
     "macos-pack": "oclif-dev pack:macos",
     "win-pub": "oclif-dev publish:win",
     "macos-pub": "oclif-dev publish:macos",
-    "pack": "npm run prepack && oclif-dev pack && npm run postpack",
+    "pack": "oclif-dev pack",
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "prepack": "oclif-dev manifest && oclif-dev readme && npm install --package-lock",
     "publish": "oclif-dev publish",
