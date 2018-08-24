@@ -38,7 +38,7 @@ $ npm install -g stig
 $ stig COMMAND
 running command...
 $ stig (-v|--version|version)
-stig/0.1.10-0 darwin-x64 node-v10.7.0
+stig/0.1.10 darwin-x64 node-v10.7.0
 $ stig --help [COMMAND]
 USAGE
   $ stig COMMAND
@@ -50,7 +50,7 @@ USAGE
 * [`stig autocomplete [SHELL]`](#stig-autocomplete-shell)
 * [`stig help [COMMAND]`](#stig-help-command)
 * [`stig ls [BENCHMARKID]`](#stig-ls-benchmarkid)
-* [`stig read [BENCHMARKID]`](#stig-read-benchmarkid)
+* [`stig read BENCHMARKID`](#stig-read-benchmarkid)
 * [`stig update [CHANNEL]`](#stig-update-channel)
 
 ## `stig autocomplete [SHELL]`
@@ -143,23 +143,22 @@ EXAMPLES
   stig ls 200
 ```
 
-_See code: [src/commands/ls.js](https://github.com/defionscode/stig-cli/blob/v0.1.10-0/src/commands/ls.js)_
+_See code: [src/commands/ls.js](https://github.com/defionscode/stig-cli/blob/v0.1.10/src/commands/ls.js)_
 
-## `stig read [BENCHMARKID]`
+## `stig read BENCHMARKID`
 
 Read one or more rules from a specific benchmark.
 
 ```
 USAGE
-  $ stig read [BENCHMARKID]
+  $ stig read BENCHMARKID
 
 ARGUMENTS
-  BENCHMARKID  The benchmark id of the rule(s) you want to get content for. This is not required but makes queries
-               faster
+  BENCHMARKID  The benchmark id of the rule(s) you want to get content for.
 
 OPTIONS
-  -r, --rule=rule  (required) A valid STIG Identifier for the rule. It can be a Vulnerability or Rule ID. Multiple rules
-                   can be specified
+  -r, --rule=rule  A valid STIG Identifier for the rule. It can be a Vulnerability or Rule ID. Multiple rules can be
+                   specified
 
   --json           Return results in JSON format
 
@@ -205,7 +204,7 @@ EXAMPLES
   $ stig read 89
 ```
 
-_See code: [src/commands/read.js](https://github.com/defionscode/stig-cli/blob/v0.1.10-0/src/commands/read.js)_
+_See code: [src/commands/read.js](https://github.com/defionscode/stig-cli/blob/v0.1.10/src/commands/read.js)_
 
 ## `stig update [CHANNEL]`
 
