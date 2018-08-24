@@ -1,14 +1,17 @@
 {
   "name": "stig",
   "description": "A simple command line interface to read and interface with DISA STIG benchmarks",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Jonathan Davila @defionscode",
   "bin": {
     "stig": "./bin/run"
   },
   "bugs": "https://github.com/defionscode/stig-cli/issues",
   "files": [
-    "data/*"
+    "/bin",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/src"
   ],
   "dependencies": {
     "@oclif/command": "^1.5.0",
@@ -39,12 +42,6 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "files": [
-    "/bin",
-    "/npm-shrinkwrap.json",
-    "/oclif.manifest.json",
-    "/src"
-  ],
   "homepage": "https://github.com/defionscode/stig-cli",
   "keywords": [
     "oclif"

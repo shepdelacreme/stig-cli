@@ -24,7 +24,7 @@ $ npm install -g stig
 $ stig COMMAND
 running command...
 $ stig (-v|--version|version)
-stig/0.1.0 darwin-x64 node-v10.7.0
+stig/0.1.1 darwin-x64 node-v10.7.0
 $ stig --help [COMMAND]
 USAGE
   $ stig COMMAND
@@ -74,7 +74,7 @@ DESCRIPTION
   When supplied without arguments it returns a list of all available benchmarks.
 ```
 
-_See code: [src/commands/ls.js](https://github.com/defionscode/stig-cli/blob/v0.1.0/src/commands/ls.js)_
+_See code: [src/commands/ls.js](https://github.com/defionscode/stig-cli/blob/v0.1.1/src/commands/ls.js)_
 
 ## `stig read [BENCHMARKID]`
 
@@ -98,5 +98,5 @@ DESCRIPTION
   Read the specific text of a rule along with it's metadata.
 ```
 
-_See code: [src/commands/read.js](https://github.com/defionscode/stig-cli/blob/v0.1.0/src/commands/read.js)_
+_See code: [src/commands/read.js](https://github.com/defionscode/stig-cli/blob/v0.1.1/src/commands/read.js)_
 <!-- commandsstop -->
