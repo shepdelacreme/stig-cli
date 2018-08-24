@@ -18,6 +18,7 @@ A simple command line interface to read and interface with DISA STIG benchmarks
 
 ## Installers and standalone tarballs
 While this utility is built with node, you do not not need node to use `stig` cli. You can use one of the following sources.
+
 | System                       | Type   | Download Link      |
 |------------------------------|--------|--------------------|
 | MacOS                        | tar.gz | [Stable][macostar] |
