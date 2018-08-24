@@ -68,7 +68,10 @@
       "@oclif/plugin-help",
       "@oclif/plugin-update",
       "@oclif/plugin-warn-if-update-available"
-    ]
+    ],
+    "warn-if-update-available": {
+      "timeoutInDays": 1
+    }
   },
   "repository": "defionscode/stig-cli",
   "scripts": {
