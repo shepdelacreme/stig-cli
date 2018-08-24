@@ -1,6 +1,7 @@
 const { listRules, fillRulesArr } = require('./ls')
 const JsonDB = require('node-json-db')
-const bDB = new JsonDB('data/benchmarks', true, true)
+const { join } = require('path')
+const bDB = new JsonDB(join(__dirname, '../../', 'data/benchmarks'), true, true)
 const BENCHMARKS = bDB.getData('data/benchmarks')
 const debug = require('debug')('utils:read')
 const chalk = require('chalk')

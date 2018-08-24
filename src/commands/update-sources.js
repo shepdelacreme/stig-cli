@@ -6,7 +6,7 @@ const JsonDB = require('node-json-db')
 const { extract, download } = require('../utils')
 const debug = require('debug')('update-sources')
 
-const bDB = new JsonDB('data/benchmarks', true, true)
+const bDB = new JsonDB(join(__dirname, '../../', 'data/benchmarks'), true, true)
 
 const URLS = [
   'https://iase.disa.mil/stigs/Pages/a-z.aspx',
