@@ -15,6 +15,9 @@ A simple command line interface to read and interface with DISA STIG benchmarks
 * [Commands](#commands)
 <!-- tocstop -->
 # Usage
+
+**NOTE:** Standalone binaries coming soon...
+
 <!-- usage -->
 ```sh-session
 $ npm install -g stig

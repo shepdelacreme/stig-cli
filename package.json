@@ -7,6 +7,9 @@
     "stig": "./bin/run"
   },
   "bugs": "https://github.com/defionscode/stig-cli/issues",
+  "files": [
+    "data/"
+  ],
   "dependencies": {
     "@oclif/command": "^1.5.0",
     "@oclif/config": "^1.7.0",
@@ -54,6 +57,10 @@
         "bucket": "stigcli"
       }
     },
+    "macos": {
+      "identifier": "com.stig.cli",
+      "sign": "Developer ID Installer: Jonathan Davila"
+    },
     "commands": "./src/commands",
     "bin": "stig",
     "plugins": [
@@ -63,6 +70,12 @@
   "repository": "defionscode/stig-cli",
   "scripts": {
     "tape": "tape",
+    "ospack": "npm run win-pack && npm run macos-pack",
+    "ospub": "npm run win-pub && npm run macos-pub",
+    "win-pack": "oclif-dev pack:win",
+    "macos-pack": "oclif-dev pack:macos",
+    "win-pub": "oclif-dev publish:win",
+    "macos-pub": "oclif-dev publish:macos",
     "pack": "npm run prepack && oclif-dev pack && npm run postpack",
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "prepack": "oclif-dev manifest && oclif-dev readme && npm install --package-lock",
