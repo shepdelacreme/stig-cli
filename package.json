@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.17.0",
+    "aws-sdk": "^2.300.0",
     "debug": "^3.1.0",
     "debug-stream": "^3.0.1",
     "globby": "^8.0.1",
@@ -64,7 +65,8 @@
     "tape": "tape",
     "pack": "npm run prepack && oclif-dev pack && npm run postpack",
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
-    "prepack": "oclif-dev manifest && oclif-dev readme && npm shrinkwrap",
+    "prepack": "oclif-dev manifest && oclif-dev readme && npm install --package-lock",
+    "publish": "oclif-dev publish",
     "test": "standard src/* && tape tests/test*.js",
     "version": "oclif-dev readme && git add README.md"
   }
