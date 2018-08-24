@@ -86,7 +86,8 @@ ReadCommand.examples = [
 ReadCommand.args = [
   {
     name: 'benchmarkId',
-    description: 'The benchmark id of the rule(s) you want to get content for. This is not required but makes queries faster'
+    description: 'The benchmark id of the rule(s) you want to get content for.',
+    required: true
   }
 ]
 
@@ -94,8 +95,7 @@ ReadCommand.flags = {
   rule: flags.string({
     char: 'r',
     description: 'A valid STIG Identifier for the rule. It can be a Vulnerability or Rule ID. Multiple rules can be specified',
-    multiple: true,
-    required: true
+    multiple: true
   }),
   json: flags.boolean(json())
 }

@@ -51,15 +51,21 @@ module.exports.findInBenchmark = async ({ benchmarkId, rule }) => {
       debug('err in listRules()')
       return { err }
     }
-    const matches = (ruleObj) => {
-      return rule.includes(String(ruleObj.index)) ||
-        rule.includes(ruleObj.vulnId) ||
-        rule.includes(ruleObj.ruleId)
-    }
-    const rules = data.filter(matches)
-    if (rules.length === 0) {
-      debug('ERROR, no rules found')
-      return { err: new Error('no rules found') }
+
+    let rules
+    if (rule) {
+      const matches = (ruleObj) => {
+        return rule.includes(String(ruleObj.index)) ||
+          rule.includes(ruleObj.vulnId) ||
+          rule.includes(ruleObj.ruleId)
+      }
+      rules = data.filter(matches)
+      if (rules.length === 0) {
+        debug('ERROR, no rules found')
+        return { err: new Error('no rules found') }
+      }
+    } else {
+      rules = data
     }
     return { data: rules }
   } catch (err) {
@@ -78,7 +84,7 @@ module.exports.showResults = async ({ results }) => {
     const high = (s) => chalk.bgRed(s)
     const rDivider = () => chalk.gray(divider('-'))
 
-    let output = ''
+    let output = `${divider()}\n`
     for (const result of results) {
       const {
         benchmarkTitle,
@@ -91,13 +97,8 @@ module.exports.showResults = async ({ results }) => {
         title
       } = result
       assert(['high', 'medium', 'low'].includes(severity))
+      bTitle = benchmarkTitle
       output += `
-${divider()}
-
-${mainTitle(benchmarkTitle)}
-
-${rDivider()}
-
 ${bWhite(wrap(title))}
 
 ${bWhite('SEVERITY:')} ${eval(severity)(severity.toUpperCase())} 
@@ -114,11 +115,9 @@ ${bWhite('CHECK:')}
 ${wrap(checkContent)}
 
 ${rDivider()}
-
-${divider()}
-
     `
     }
+    output = `\n${divider()}\n${mainTitle(bTitle)}\n` + output + `\n${divider()}`
     return { output }
   } catch (err) {
     return { err }
