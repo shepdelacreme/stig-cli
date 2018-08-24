@@ -16,7 +16,20 @@ A simple command line interface to read and interface with DISA STIG benchmarks
 <!-- tocstop -->
 # Usage
 
-**NOTE:** Standalone binaries coming soon...
+## Installers and standalone tarballs
+While this utility is built with node, you do not not need node to use `stig` cli. You can use one of the following sources.
+| System                       | Type   | Download Link      |
+|------------------------------|--------|--------------------|
+| MacOS                        | tar.gz | [Stable][macostar] |
+| MacOS Installer              | pkg    | [Stable][macospkg] |
+| Linux ARM                    | tar.gz | [Stable][linuxarm] |
+| Linux x64                    | tar.gz | [Stable][linux64]: |
+| Windows x64                  | tar.gz | [Stable][win86tar] |
+| Windows x86                  | tar.gz | [Stable][win64tar] |
+| Windows x86 Installer        | exe    | [Stable][win86exe] |
+| Windows x64 Installer        | exe    | [Stable][win64exe] |
+| Plain (requires nodejs > 10) | tar.gz | [Stable][vanilla]  |
+
 
 <!-- usage -->
 ```sh-session
@@ -100,3 +113,13 @@ DESCRIPTION
 
 _See code: [src/commands/read.js](https://github.com/defionscode/stig-cli/blob/v0.1.4/src/commands/read.js)_
 <!-- commandsstop -->
+
+[macostar]: https://s3.amazonaws.com/stigcli/stig-darwin-x64.tar.gz
+[macospkg]: https://s3.amazonaws.com/stigcli/stig.pkg
+[linuxarm]: https://s3.amazonaws.com/stigcli/stig-linux-arm.tar.gz
+[linux64]: https://s3.amazonaws.com/stigcli/stig-linux-x64.tar.gz
+[win86tar]: https://s3.amazonaws.com/stigcli/stig-win32-x86.tar.gz
+[win64tar]: https://s3.amazonaws.com/stigcli/stig-win32-x64.tar.gz
+[win86exe]: https://s3.amazonaws.com/stigcli/stig-x86.exe
+[win64exe]: https://s3.amazonaws.com/stigcli/stig-x64.exe
+[vanilla]: https://s3.amazonaws.com/stigcli/stig.tar.gz
