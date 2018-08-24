@@ -10,6 +10,20 @@ A simple command line interface to read and interface with DISA STIG benchmarks
 [![Downloads/week](https://img.shields.io/npm/dw/stig.svg)](https://npmjs.org/package/stig)
 [![License](https://img.shields.io/npm/l/stig.svg)](https://github.com/defionscode/stig-cli/blob/master/package.json)
 
+# Introduction
+
+This command line utility is intended to help technical folks more easily read through DISA STIG content. Every single solution that currently exists requires folks to use a UI such as the Java based STIG viewer from DISA or stigviewer.com which updates very slowly, neither are open source AFAIK.
+
+This CLI is simple, and while it's built with nodejs it **DOES NOT** require you to have nodejs on your system nor will it conflict with an pre-exisiting nodejs installed on your system. Unless you install directly with `npm -g` the bundle you install from will contain a prebuilt node binary which will be used to invoke the CLI (invisible to you, the end user).
+
+## Examples
+
+**List All Available Benchmarks** via `stig ls`
+![output of ls command][./static/ls-plain.png]
+
+
+## Table of Contents
+
 <!-- toc -->
 * [Usage](#usage)
 * [Commands](#commands)
