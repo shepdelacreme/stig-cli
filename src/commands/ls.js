@@ -82,7 +82,40 @@ class LsCommand extends Command {
 LsCommand.description = `List STIG Information
 The 'ls' command is the entry point into reading STIG information.
 When supplied without arguments it returns a list of all available benchmarks.
+
+Example output
+
+$ stig ls
+╔═════╤═════════════════════════════════════════════════════════╤══════╤══════╤════════════╗
+║ ID  │ Title                                                   │ Ver. │ Rel. │ Date       ║
+╟─────┼─────────────────────────────────────────────────────────┼──────┼──────┼────────────╢
+║ 0   │ A10 Networks Application Delivery Controller (ADC) ALG  │ 1    │ 1    │ 4/27/2016  ║
+╟─────┼─────────────────────────────────────────────────────────┼──────┼──────┼────────────╢
+║ 1   │ A10 Networks Application Delivery Controller (ADC) NDM  │ 1    │ 1    │ 4/27/2016  ║
+╟─────┼─────────────────────────────────────────────────────────┼──────┼──────┼────────────╢
+
+And then if you want to list the rules inside of benchmarks supply an ID number
+
+Example output
+$ stig ls 0
+╔════╤═══════════════════════════════════════════════╤═════════╤═════════════════╤══════════╗
+║ ID │ Title                                         │ Vuln ID │ Rule ID         │ Severity ║
+╟────┼───────────────────────────────────────────────┼─────────┼─────────────────┼──────────╢
+║ 0  │ The A10 Networks ADC, when used for TLS       │ V-67957 │ SV-82447r1_rule │ medium   ║
+║    │ encryption anddecryption, must be configured  │         │                 │          ║
+║    │ to comply with the required TLSsettings in    │         │                 │          ║
+║    │ NIST SP 800-52.                               │         │                 │          ║
+╟────┼───────────────────────────────────────────────┼─────────┼─────────────────┼──────────╢
+║ 1  │ The A10 Networks ADC, when used to load       │ V-67959 │ SV-82449r1_rule │ low      ║
+║    │ balance webapplications, must enable external │         │                 │
 `
+
+LsCommand.examples = [
+  'stig ls',
+  'stig ls 200'
+
+]
+
 LsCommand.args = [
   {
     name: 'benchmarkId',

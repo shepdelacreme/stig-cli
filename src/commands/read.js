@@ -41,8 +41,47 @@ class ReadCommand extends Command {
 }
 
 ReadCommand.description = `Read one or more rules from a specific benchmark.
-Read the specific text of a rule along with it's metadata.
+This command outputs the detailed text of a rule from within a benchmark.
+
+First you need to get the ID of the benchmark you want
+
+Example
+$ stig ls
+
+╟─────┼─────────────────────────────────────────────────────────┼──────┼──────┼────────────╢
+║ 89  │ Microsoft IIS 7                                         │ 16   │ 1    │ 1/26/2018  ║
+╟─────┼─────────────────────────────────────────────────────────┼──────┼──────┼────────────╢
+
+Then you want to get the rule ID 
+
+Example
+$ stig ls 89
+
+╟────┼───────────────────────────────────────────────┼─────────┼─────────────────┼──────────╢
+║ 2  │ Installation of compilers on production web   │ V-2236  │ SV-32632r4_rule │ medium   ║
+║    │ servers isprohibited.                         │         │                 │          ║
+╟────┼───────────────────────────────────────────────┼─────────┼─────────────────┼──────────╢
+
+Then to look at the text for this rule we have a few options
+
+Examples:
+$ stig read 89 -r V-2236
+$ stig read 89 -r SV-32632r4_rule
+$ stig read 89 -r 2
+
+You can pass in multiple '-r' flags to output multiple rules at once
+
+If you want to output ALL rules just omit the '-r' flag
+
+$ stig read 89
 `
+
+ReadCommand.examples = [
+  '$ stig read 89 -r V-2236',
+  '$ stig read 89 -r SV-32632r4_rule',
+  '$ stig read 89 -r 2',
+  '$ stig read 89'
+]
 
 ReadCommand.args = [
   {
