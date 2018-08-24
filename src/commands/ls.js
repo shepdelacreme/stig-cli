@@ -17,7 +17,7 @@ const lsRules = async ({ data, benchmarkId, cats, json }) => {
       1: { wrapWord: true, width: 45 }
     }
   }
-  const xmlPath = data[benchmarkId].xmlPath
+  const xmlPath = join(__dirname, '../../', data[benchmarkId].xmlPath)
   debug(`Parsing ${xmlPath}`)
   let { err: rulesErr, data: rulesData } = await listRules({ xmlPath })
   if (rulesErr) {

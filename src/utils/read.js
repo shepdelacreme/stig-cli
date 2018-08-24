@@ -14,7 +14,8 @@ module.exports.findInAll = async ({ rule }) => {
   let rules = []
   try {
     for await (const benchmark of BENCHMARKS) {
-      const { xmlPath } = benchmark
+      let { xmlPath } = benchmark
+      xmlPath = join(__dirname, '../../', xmlPath)
       const { err, data } = await listRules({ xmlPath })
       if (err) {
         debug('err in listRules()')
@@ -42,7 +43,8 @@ module.exports.findInAll = async ({ rule }) => {
 
 module.exports.findInBenchmark = async ({ benchmarkId, rule }) => {
   try {
-    const { xmlPath } = BENCHMARKS[benchmarkId]
+    let { xmlPath } = BENCHMARKS[benchmarkId]
+    xmlPath = join(__dirname, '../../', xmlPath)
     debug(xmlPath)
     const { err, data } = await listRules({ xmlPath })
     if (err) {

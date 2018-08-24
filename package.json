@@ -79,7 +79,7 @@
     "macos-pack": "oclif-dev pack:macos",
     "win-pub": "oclif-dev publish:win",
     "macos-pub": "oclif-dev publish:macos",
-    "pack": "oclif-dev pack && npm run ospack",
+    "pack": "oclif-dev pack",
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "prepack": "oclif-dev manifest && oclif-dev readme && npm install --package-lock",
     "publish": "oclif-dev publish && npm run ospub",
