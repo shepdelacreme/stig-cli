@@ -19,7 +19,7 @@ This CLI is simple, and while it's built with nodejs it **DOES NOT** require you
 ## Examples
 
 **List All Available Benchmarks** via `stig ls`
-![output of ls command][./static/ls-plain.png]
+![output of ls command](./static/ls-plain.png)
 
 
 ## Table of Contents
