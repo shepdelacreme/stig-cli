@@ -21,7 +21,7 @@ $ npm install -g stig
 $ stig COMMAND
 running command...
 $ stig (-v|--version|version)
-stig/0.0.0 darwin-x64 node-v8.11.3
+stig/0.0.0 darwin-x64 node-v10.7.0
 $ stig --help [COMMAND]
 USAGE
   $ stig COMMAND
@@ -30,28 +30,9 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`stig hello`](#stig-hello)
 * [`stig help [COMMAND]`](#stig-help-command)
 * [`stig ls [BENCHMARKID]`](#stig-ls-benchmarkid)
-* [`stig read`](#stig-read)
-
-## `stig hello`
-
-Describe the command here
-
-```
-USAGE
-  $ stig hello
-
-OPTIONS
-  -n, --name=name  name to print
-
-DESCRIPTION
-  ...
-  Extra documentation goes here
-```
-
-_See code: [src/commands/hello.js](https://github.com/defionscode/stig-cli/blob/v0.0.0/src/commands/hello.js)_
+* [`stig read [BENCHMARKID]`](#stig-read-benchmarkid)
 
 ## `stig help [COMMAND]`
 
@@ -84,30 +65,34 @@ ARGUMENTS
 OPTIONS
   -c, --cats=1|2|3  [default: 1,2,3] Rule categories to show from. If no arg is supplied, everything is listed
   --json            Return results in JSON format
-  --yaml            Return results in YAML format
 
 DESCRIPTION
-  ...
   The 'ls' command is the entry point into reading STIG information.
   When supplied without arguments it returns a list of all available benchmarks.
 ```
 
 _See code: [src/commands/ls.js](https://github.com/defionscode/stig-cli/blob/v0.0.0/src/commands/ls.js)_
 
-## `stig read`
+## `stig read [BENCHMARKID]`
 
-Describe the command here
+Read one or more rules from a specific benchmark.
 
 ```
 USAGE
-  $ stig read
+  $ stig read [BENCHMARKID]
+
+ARGUMENTS
+  BENCHMARKID  The benchmark id of the rule(s) you want to get content for. This is not required but makes queries
+               faster
 
 OPTIONS
-  -n, --name=name  name to print
+  -r, --rule=rule  (required) A valid STIG Identifier for the rule. It can be a Vulnerability or Rule ID. Multiple rules
+                   can be specified
+
+  --json           Return results in JSON format
 
 DESCRIPTION
-  ...
-  Extra documentation goes here
+  Read the specific text of a rule along with it's metadata.
 ```
 
 _See code: [src/commands/read.js](https://github.com/defionscode/stig-cli/blob/v0.0.0/src/commands/read.js)_

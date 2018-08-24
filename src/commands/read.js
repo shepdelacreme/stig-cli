@@ -21,19 +21,22 @@ class ReadCommand extends Command {
       }
       const { err: showErr, output } = await showResults({ results: fibData })
       if (showErr) {
-        throw fibErr
+        throw showErr
       }
       console.log(output)
       return
     }
-
+    // no benchmark id, search everything...
     const { err: allErr, data: allData } = await findInAll({ rule })
     if (allErr) {
       throw allErr
     }
 
-    console.log(allData)
-    // look in ALL rules :O
+    const { err: showErr, output } = await showResults({ results: allData })
+    if (showErr) {
+      throw showErr
+    }
+    console.log(output)
   }
 }
 

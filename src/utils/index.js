@@ -9,7 +9,6 @@ const { join } = require('path')
 const unzipper = require('unzipper')
 const debug = require('debug')('utils')
 const fetch = require('node-fetch')
-const D2UConverter = require('@dpwolfe/dos2unix').dos2unix
 
 module.exports.download = async ({ url, title, tmpDir }) => {
   try {
@@ -126,58 +125,5 @@ module.exports.extract = ({ archivePath, desiredFile }) => {
       debug(err)
       return reject(err)
     }
-  })
-}
-
-module.exports.convert = () => {
-  debug('convert()')
-  return new Promise((resolve, reject) => {
-    const d2u = new D2UConverter({
-      glob: {
-        cwd: join(__dirname, '../../data/benchmarks'),
-        ignore: [
-          // these are the particular benchmarks
-          // that dont come with ^M
-          // ¯\_(ツ)_/¯
-          '*AIX*',
-          '*ASD*',
-          '*Ubuntu_16*',
-          '*Windows_10*',
-          '*Windows_2008_DC*',
-          '*Windows_2008_MS*',
-          '*Windows_2008_R2*',
-          '*Windows_2012*R2_DC*',
-          '*Windows_2012*R2_MS*',
-          '*Windows_Ser*2016*',
-          '*Network_Devices*',
-          '*Oracle*11*',
-          '*Oracle*12*',
-          '*HPUX_11*',
-          '*Red*6*',
-          '*Red*7*',
-          '*SLES*',
-          '*zOS*',
-          '*Solaris*',
-          '*Network_Perimeter_Router*'
-        ] // MOAR snowflakes!
-      },
-      maxConcurrency: 200
-    })
-      .on('processing.skip', (d) => {
-        debug('SKIPPED')
-        debug(d)
-      })
-      .on('error', (err) => {
-        debug('ERROR')
-        debug(err)
-        return resolve({ err })
-      })
-      .on('end', (stats) => {
-        debug(stats)
-        debug('conversion done')
-        return resolve({ data: stats })
-      })
-    debug(d2u)
-    d2u.process(['*.xml'])
   })
 }
