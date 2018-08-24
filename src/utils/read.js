@@ -12,13 +12,12 @@ module.exports.findInAll = async ({ rule }) => {
   // TODO dry it up
   let rules = []
   try {
-    for (const benchmark of BENCHMARKS) {
+    for await (const benchmark of BENCHMARKS) {
       const { xmlPath } = benchmark
-      debug(xmlPath)
       const { err, data } = await listRules({ xmlPath })
       if (err) {
         debug('err in listRules()')
-        return { err }
+        throw err
       }
       const matches = (ruleObj) => {
         return rule.includes(String(ruleObj.index)) ||
@@ -35,6 +34,7 @@ module.exports.findInAll = async ({ rule }) => {
 
     return { data: rules }
   } catch (err) {
+    debug('findAll err')
     return { err }
   }
 }

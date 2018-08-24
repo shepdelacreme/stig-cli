@@ -3,7 +3,7 @@ const { join, basename } = require('path')
 const { cli } = require('cli-ux')
 const { getHTML, getVerRel } = require('../utils/update-sources')
 const JsonDB = require('node-json-db')
-const { convert, extract, download } = require('../utils')
+const { extract, download } = require('../utils')
 const debug = require('debug')('update-sources')
 
 const bDB = new JsonDB('data/benchmarks', true, true)
@@ -160,13 +160,6 @@ class UpdateSourcesCommand extends Command {
       debug(extErr)
       throw extErr
     }
-
-    debug('Convert start')
-    const { err: convertErr } = await convert()
-    if (convertErr) {
-      throw convertErr
-    }
-    debug('Convert done')
 
     cli.action.stop('done!')
   }
