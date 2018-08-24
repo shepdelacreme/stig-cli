@@ -38,7 +38,7 @@ $ npm install -g stig
 $ stig COMMAND
 running command...
 $ stig (-v|--version|version)
-stig/0.1.9-0 darwin-x64 node-v10.7.0
+stig/0.1.10-0 darwin-x64 node-v10.7.0
 $ stig --help [COMMAND]
 USAGE
   $ stig COMMAND
@@ -111,9 +111,39 @@ OPTIONS
 DESCRIPTION
   The 'ls' command is the entry point into reading STIG information.
   When supplied without arguments it returns a list of all available benchmarks.
+
+  Example output
+
+  $ stig ls
+  ╔═════╤═════════════════════════════════════════════════════════╤══════╤══════╤════════════╗
+  ║ ID  │ Title                                                   │ Ver. │ Rel. │ Date       ║
+  ╟─────┼─────────────────────────────────────────────────────────┼──────┼──────┼────────────╢
+  ║ 0   │ A10 Networks Application Delivery Controller (ADC) ALG  │ 1    │ 1    │ 4/27/2016  ║
+  ╟─────┼─────────────────────────────────────────────────────────┼──────┼──────┼────────────╢
+  ║ 1   │ A10 Networks Application Delivery Controller (ADC) NDM  │ 1    │ 1    │ 4/27/2016  ║
+  ╟─────┼─────────────────────────────────────────────────────────┼──────┼──────┼────────────╢
+
+  And then if you want to list the rules inside of benchmarks supply an ID number
+
+  Example output
+  $ stig ls 0
+  ╔════╤═══════════════════════════════════════════════╤═════════╤═════════════════╤══════════╗
+  ║ ID │ Title                                         │ Vuln ID │ Rule ID         │ Severity ║
+  ╟────┼───────────────────────────────────────────────┼─────────┼─────────────────┼──────────╢
+  ║ 0  │ The A10 Networks ADC, when used for TLS       │ V-67957 │ SV-82447r1_rule │ medium   ║
+  ║    │ encryption anddecryption, must be configured  │         │                 │          ║
+  ║    │ to comply with the required TLSsettings in    │         │                 │          ║
+  ║    │ NIST SP 800-52.                               │         │                 │          ║
+  ╟────┼───────────────────────────────────────────────┼─────────┼─────────────────┼──────────╢
+  ║ 1  │ The A10 Networks ADC, when used to load       │ V-67959 │ SV-82449r1_rule │ low      ║
+  ║    │ balance webapplications, must enable external │         │                 │
+
+EXAMPLES
+  stig ls
+  stig ls 200
 ```
 
-_See code: [src/commands/ls.js](https://github.com/defionscode/stig-cli/blob/v0.1.9-0/src/commands/ls.js)_
+_See code: [src/commands/ls.js](https://github.com/defionscode/stig-cli/blob/v0.1.10-0/src/commands/ls.js)_
 
 ## `stig read [BENCHMARKID]`
 
@@ -134,10 +164,48 @@ OPTIONS
   --json           Return results in JSON format
 
 DESCRIPTION
-  Read the specific text of a rule along with it's metadata.
+  This command outputs the detailed text of a rule from within a benchmark.
+
+  First you need to get the ID of the benchmark you want
+
+  Example
+  $ stig ls
+
+  ╟─────┼─────────────────────────────────────────────────────────┼──────┼──────┼────────────╢
+  ║ 89  │ Microsoft IIS 7                                         │ 16   │ 1    │ 1/26/2018  ║
+  ╟─────┼─────────────────────────────────────────────────────────┼──────┼──────┼────────────╢
+
+  Then you want to get the rule ID 
+
+  Example
+  $ stig ls 89
+
+  ╟────┼───────────────────────────────────────────────┼─────────┼─────────────────┼──────────╢
+  ║ 2  │ Installation of compilers on production web   │ V-2236  │ SV-32632r4_rule │ medium   ║
+  ║    │ servers isprohibited.                         │         │                 │          ║
+  ╟────┼───────────────────────────────────────────────┼─────────┼─────────────────┼──────────╢
+
+  Then to look at the text for this rule we have a few options
+
+  Examples:
+  $ stig read 89 -r V-2236
+  $ stig read 89 -r SV-32632r4_rule
+  $ stig read 89 -r 2
+
+  You can pass in multiple '-r' flags to output multiple rules at once
+
+  If you want to output ALL rules just omit the '-r' flag
+
+  $ stig read 89
+
+EXAMPLES
+  $ stig read 89 -r V-2236
+  $ stig read 89 -r SV-32632r4_rule
+  $ stig read 89 -r 2
+  $ stig read 89
 ```
 
-_See code: [src/commands/read.js](https://github.com/defionscode/stig-cli/blob/v0.1.9-0/src/commands/read.js)_
+_See code: [src/commands/read.js](https://github.com/defionscode/stig-cli/blob/v0.1.10-0/src/commands/read.js)_
 
 ## `stig update [CHANNEL]`
 
