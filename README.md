@@ -16,31 +16,6 @@ This command line utility is intended to help technical folks more easily read t
 
 This CLI is simple, and while it's built with nodejs it **DOES NOT** require you to have nodejs on your system nor will it conflict with an pre-exisiting nodejs installed on your system. Unless you install directly with `npm -g` the bundle you install from will contain a prebuilt node binary which will be used to invoke the CLI (invisible to you, the end user).
 
-## Examples
-
-**List All Available Benchmarks**
-
-```
-stig ls
-```
-
-![output of ls command](./static/ls-plain.png)
-
-**List Rules for a specific benchmark**
-
-```
-stig ls 3
-```
-
-![output of ls 3 command](./static/ls-benchmark.png)
-
-**List only CAT II rules for a specific benchmark**
-
-```
-stig ls 3 -c 3
-```
-
-![output of ls 3 -c 3 command](./static/ls-benchmark-cat3.png)
 
 ## Table of Contents
 
@@ -48,6 +23,8 @@ stig ls 3 -c 3
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+* [Visual Examples](#examples)
+
 # Usage
 
 ## Installers and standalone tarballs
@@ -251,6 +228,32 @@ USAGE
 
 _See code: [@oclif/plugin-update](https://github.com/oclif/plugin-update/blob/v1.3.1/src/commands/update.ts)_
 <!-- commandsstop -->
+
+# Examples
+
+**List All Available Benchmarks**
+
+```
+stig ls
+```
+
+![output of ls command](./static/ls-plain.png)
+
+**List Rules for a specific benchmark**
+
+```
+stig ls 3
+```
+
+![output of ls 3 command](./static/ls-benchmark.png)
+
+**List only CAT II rules for a specific benchmark**
+
+```
+stig ls 3 -c 3
+```
+
+![output of ls 3 -c 3 command](./static/ls-benchmark-cat3.png)
 
 [macostar]: https://s3.amazonaws.com/stigcli/stig-darwin-x64.tar.gz
 [macospkg]: https://s3.amazonaws.com/stigcli/stig.pkg
