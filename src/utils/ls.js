@@ -61,7 +61,7 @@ module.exports.listRules = async ({ xmlPath }) => {
   try {
     const rules = []
     const rFile = promisify(readFile)
-    const file = await rFile(join(__dirname, '../../', xmlPath))
+    const file = await rFile(xmlPath)
     const cData = file.toString()
     const { err: parseErr, data: xmlData } = await module.exports.parseXML(cData)
     if (parseErr || !xmlData) {
