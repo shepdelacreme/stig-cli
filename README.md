@@ -47,9 +47,34 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`stig autocomplete [SHELL]`](#stig-autocomplete-shell)
 * [`stig help [COMMAND]`](#stig-help-command)
 * [`stig ls [BENCHMARKID]`](#stig-ls-benchmarkid)
 * [`stig read [BENCHMARKID]`](#stig-read-benchmarkid)
+* [`stig update [CHANNEL]`](#stig-update-channel)
+
+## `stig autocomplete [SHELL]`
+
+display autocomplete installation instructions
+
+```
+USAGE
+  $ stig autocomplete [SHELL]
+
+ARGUMENTS
+  SHELL  shell type
+
+OPTIONS
+  -r, --refresh-cache  Refresh cache (ignores displaying instructions)
+
+EXAMPLES
+  $ stig autocomplete
+  $ stig autocomplete bash
+  $ stig autocomplete zsh
+  $ stig autocomplete --refresh-cache
+```
+
+_See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v0.1.0/src/commands/autocomplete/index.ts)_
 
 ## `stig help [COMMAND]`
 
@@ -113,6 +138,17 @@ DESCRIPTION
 ```
 
 _See code: [src/commands/read.js](https://github.com/defionscode/stig-cli/blob/v0.1.4/src/commands/read.js)_
+
+## `stig update [CHANNEL]`
+
+update the stig CLI
+
+```
+USAGE
+  $ stig update [CHANNEL]
+```
+
+_See code: [@oclif/plugin-update](https://github.com/oclif/plugin-update/blob/v1.3.1/src/commands/update.ts)_
 <!-- commandsstop -->
 
 [macostar]: https://s3.amazonaws.com/stigcli/stig-darwin-x64.tar.gz
