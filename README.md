@@ -16,6 +16,9 @@ This command line utility is intended to help technical folks more easily read t
 
 This CLI is simple, and while it's built with nodejs it **DOES NOT** require you to have nodejs on your system nor will it conflict with an pre-exisiting nodejs installed on your system. Unless you install directly with `npm -g` the bundle you install from will contain a prebuilt node binary which will be used to invoke the CLI (invisible to you, the end user).
 
+Once you've installed it, updates are super simple with `stig update` and that is it. It will periodically attempt to update itself.
+
+This utility also does not require internet to work. All publicly avaialable benchmarks are bundled in with the source code so there is no need for outbound access for anything other than for updates.
 
 ## Table of Contents
 
@@ -31,6 +34,8 @@ This CLI is simple, and while it's built with nodejs it **DOES NOT** require you
 
 ## Installers and standalone tarballs
 While this utility is built with node, you do not not need node to use `stig` cli. You can use one of the following sources.
+
+DEB and RPM installers are coming soon.
 
 | System                       | Type   | Download Link      |
 |------------------------------|--------|--------------------|
