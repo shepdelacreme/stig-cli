@@ -255,6 +255,18 @@ stig ls 3 -c 3
 
 ![output of ls 3 -c 3 command](./static/ls-benchmark-cat3.png)
 
+**Read the content of a specific rule**
+
+Note: you can pass in multiple `-r` flags
+
+```
+stig read 3 -r V-8521
+stig read 3 -r 0
+stig read 3 -r SV-9018r3_rule
+```
+
+![output of read -r 0 command](./static/read.png)
+
 [macostar]: https://s3.amazonaws.com/stigcli/stig-darwin-x64.tar.gz
 [macospkg]: https://s3.amazonaws.com/stigcli/stig.pkg
 [linuxarm]: https://s3.amazonaws.com/stigcli/stig-linux-arm.tar.gz
