@@ -18,9 +18,29 @@ This CLI is simple, and while it's built with nodejs it **DOES NOT** require you
 
 ## Examples
 
-**List All Available Benchmarks** via `stig ls`
+**List All Available Benchmarks**
+
+```
+stig ls
+```
+
 ![output of ls command](./static/ls-plain.png)
 
+**List Rules for a specific benchmark**
+
+```
+stig ls 3
+```
+
+![output of ls 3 command](./static/ls-benchmark.png)
+
+**List only CAT II rules for a specific benchmark**
+
+```
+stig ls 3 -c 3
+```
+
+![output of ls 3 -c 3 command](./static/ls-benchmark-cat3.png)
 
 ## Table of Contents
 
